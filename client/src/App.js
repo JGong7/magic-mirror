@@ -1,15 +1,14 @@
-import React, { Component } from "react";
-import { useState, useEffect } from "react";
-import "./App.css";
 import * as Sentry from "@sentry/browser";
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { Calendar } from "./calendar/calendar";
 import { Clock } from "./clock/clock";
-import { Quote } from "./quote/quote";
 import { CTA } from "./cta/cta";
 import { Forecast } from "./forecastio/forecastio";
-import { Calendar } from "./calendar/calendar";
-import { getApiUrl } from "./utils";
-import { Updater } from "./updater/updater";
 import { GooglePhotos } from "./googlePhotos/googlePhotos";
+import { Quote } from "./quote/quote";
+import { Updater } from "./updater/updater";
+import { getApiUrl } from "./utils";
 
 const defaultLayout = {
   topLeft: ["Clock", "Quote"],
@@ -39,7 +38,7 @@ const App = () => {
 
   useEffect(() => {
     console.log("useEffect triggered for fetching backend info...");
-    fetch("http://localhost:5000/")
+    fetch("http://34.44.97.38:5000/")
       .then(response => {
         console.log("Fetch response received...");
         if (!response.ok) {
